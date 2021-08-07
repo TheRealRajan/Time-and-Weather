@@ -70,7 +70,7 @@ setInterval(setTime, 1000);
 
 
 //Weather data from openWeatherMap
-const api_url = "http://api.openweathermap.org/data/2.5/weather?q=Kathmandu&appid=fc1eee466732cb993168dc5094445158"
+const api_url = "https://api.openweathermap.org/data/2.5/weather?q=Kathmandu&appid=fc1eee466732cb993168dc5094445158"
 
 
 const weatherEl = document.querySelector('.weather-data')
