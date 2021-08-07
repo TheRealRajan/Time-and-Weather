@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html class="dark" lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Time and Weather</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.21.1/axios.min.js"
+        integrity="sha512-bZS47S7sPOxkjU/4Bt0zrhEtWx0y0CRkhEp8IckzK+ltifIIE9EMIMTuT/mEzoIMewUINruDBIR/jJnbguonqQ=="
+        crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css" />
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <button title="Toggle View" class="toggle"><i class="fas fa-sun"></i></button>
+    
+    <div class="main-container">
+        <div class="weather-data">
+        
+        </div>
+        <div class="clock">
+            <div class="needle hour"></div>
+            <div class="needle minute"></div>           
+            <div class="needle second"></div>
+            <div class="centre-point"></div>
+            
+            <span class="twelve marker"></span>
+            <span class="three marker"></span>
+            <span class="six marker"></span>
+            <span class="nine marker"></span>
+
+        </div>
+
+        <div class="time"> </div>
+        <div class="date"> </div>
+
+    </div>
+    <script src="script.js"></script>
+</body>
+
+</html>
