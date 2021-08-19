@@ -5,6 +5,10 @@ const timeElement = document.querySelector('.time')
 const dateElement = document.querySelector('.date')
 const toggle = document.querySelector('.toggle')
 const icon = document.querySelector('.fas')
+
+const form = document.querySelector('.form')
+const search = document.querySelector('.search')
+const clear = document.querySelector('.clear')
  
 const days = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"]
 
@@ -40,11 +44,13 @@ function setTime(){
     
     secondElement.style.transform = `translate(-50%, -100%) rotate(${scale(seconds, 0, 60, 0, 360)}deg)`
 
-    timeElement.innerHTML = `${hoursForClock}:${minutes<10 ?`0${minutes}` :minutes}:${seconds<10 ? `0${seconds}`:seconds } 
+    timeElement.innerHTML = `${hoursForClock==0? 12 : hoursForClock}:${minutes<10 ?`0${minutes}` :minutes}:${seconds<10 ? `0${seconds}`:seconds } 
     
     <small class="ampm"> ${ampm} </small>`
 
     dateElement.innerHTML = `${days[day]}, ${months[month]}  <span class="circle" >${date}</span>`
+    // console.log('The hour hand value is ' + hours , hoursForClock)
+    // console.log(scale(hoursForClock, 0, 11, 0, 360), scale(minutes, 0, 60, 0, 360), scale(seconds, 0, 60, 0, 360) )
 }
 
 function changeIcon(){
@@ -69,26 +75,55 @@ setTime()
 setInterval(setTime, 1000);
 
 
-//Weather data from openWeatherMap
-const api_url = "https://api.openweathermap.org/data/2.5/weather?q=Kathmandu&appid=fc1eee466732cb993168dc5094445158"
 
 
 const weatherEl = document.querySelector('.weather-data')
-async function getWeather(){
-
+async function getWeather(cityname){
+    try{
+    //Weather data from openWeatherMap
+    const api_url = "https://api.openweathermap.org/data/2.5/weather?q="+cityname+"&appid=fc1eee466732cb993168dc5094445158"
+    // Please dont use my API Key. It has limited number of requests.
+    // You can get your own API key from OpenWeatherMap. Its completely free!
+    
+    
     const res = await axios.get(api_url)
     const data = await res.data
-
+    console.log(data)
     const temp = Math.floor(data.main.feels_like - 273.13) + "°C"
     const desc = data.weather[0].description 
     const wind = data.wind.speed + " km/h"
+    const city = data.name
+    const country = data.sys.country
 
-    weatherEl.innerHTML = `
-            <div>  <span class="desc">${desc},  ${temp} </span></div>
-            <div> Wind:<span class="wind"> ${wind}</span></div>
-            
-    `
+    //Weather data fetched from OpenWeathMap injected dynamically
+    weatherEl.innerHTML = 
+    `<div >
+        <span class="city"> ${city +","}</span>
+        <span class="country"> ${"  " + country }</span> 
+        <img class="flag" src="https://www.countryflags.io/${country}/flat/32.png">
+    </div> 
+    
+    <div><span class="desc">${desc},  ${temp} </span></div>
+    <div> Wind:<span class="wind"> ${wind}</span></div>`
+    }
+    catch(err){
+        alert('Invalid city name! Please enter correct city name and try again.')
+    }
+    
+
 }
+    
 
-getWeather()
+//Clear the search input value when clicked
+clear.addEventListener('click', ()=>{
+    search.value =''
+})
+//Get input value from form when it is submitted
+form.addEventListener('submit', (e) =>{
+    e.preventDefault()
+    const cityname = search.value
+    search.value=''
+    getWeather(cityname)
+})
+
 

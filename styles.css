@@ -33,18 +33,61 @@ body {
   height: 100vh;
   overflow: hidden;
 }
+.user-form {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  position: relative;
+}
+.clear {
+  position: absolute;
+  right: 0.5rem;
+  border: none;
+  background: transparent;
+  padding: 0.5rem 0.8rem;
+  color: #acacac;
+  font-size: 1rem;
+  cursor: pointer;
+}
+.clear:hover {
+  color: #acacac;
+  font-weight: bold;
+}
+.user-form input {
+  width: 100%;
+  display: block;
+  margin-bottom: 1.5rem;
+  background-color: transparent;
+  border-radius: 1000px;
+  border: 2px solid rgb(161, 160, 160, 0.5);
+  color: var(--primary);
+  padding: 0.6rem 1.5rem;
+  font-family: inherit;
+  font-size: 0.9rem;
+  font-weight: 500;
+  box-shadow: 0 5px 10px rgba(154, 160, 185, 0.05),
+    0 15px 40px rgba(0, 0, 0, 0.1);
+}
+
+.user-form input::placeholder {
+  color: #acacac;
+}
+
+.user-form input:focus {
+  outline: none;
+}
 
 .toggle {
   cursor: pointer;
   background-color: var(--primary);
   color: var(--secondary);
-  font-size: 1.5rem;
+  font-size: 1.3rem;
   border: 0;
   border-radius: 100%;
   padding: 0.2rem 0.3rem;
   position: absolute;
-  top: 2vh;
-  right: 2vw;
+  top: 1vh;
+  right: 1.5vw;
   opacity: 0.9;
 }
 
@@ -185,7 +228,7 @@ body {
 }
 
 .weather-data {
-  margin-bottom: 2rem;
+  margin-bottom: 1.5rem;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -195,7 +238,24 @@ body {
   color: rgb(161, 160, 160);
   margin-bottom: 1rem;
 }
+/* .location {
+  display: flex;
+  height: 1rem;
+} */
+.city {
+  text-transform: capitalize;
+  font-size: 1.5rem;
+}
+.country {
+  color: var(--primary);
+  margin-top: 0.45rem;
+}
 
+.flag {
+  height: 1rem;
+  transform: translateY(20%);
+  box-shadow: 2px 1px 3px rgba(0, 0, 0, 0.1);
+}
 .desc {
   text-transform: capitalize;
   color: var(--primary);
@@ -205,4 +265,18 @@ body {
 .wind {
   color: var(--primary);
   font-size: 1.1rem;
+}
+
+.author {
+  position: absolute;
+  color: rgb(161, 160, 160);
+  font-size: 0.75rem;
+  bottom: 0.25rem;
+  opacity: 0.65;
+}
+.author a {
+  letter-spacing: 1px;
+  text-decoration: none;
+  color: var(--primary);
+  opacity: 0.7;
 }
