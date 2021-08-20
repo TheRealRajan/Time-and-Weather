@@ -215,9 +215,9 @@ body {
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  line-height: 1.1rem;
+  line-height: 1rem;
   transition: 0.5s ease-in;
-  font-size: 0.9rem;
+  font-size: 0.7rem;
   font-weight: bold;
   padding: 0.15rem;
   margin-left: 0.3rem;
@@ -291,28 +291,33 @@ body {
   }
 }
 @media (max-height: 600px) {
+  .toggle {
+    font-size: 0.8rem;
+    padding: 0.2rem;
+  }
   .search {
     height: 2rem;
   }
   .city {
-    font-size: 1.3rem;
+    font-size: 1.2rem;
   }
   .desc {
-    font-size: 1.1rem;
-  }
-  .wind-parent {
     font-size: 1rem;
   }
+  .wind-parent {
+    font-size: 0.9rem;
+  }
   .clock {
-    height: 15rem;
-    width: 15rem;
+    height: 14rem;
+    width: 14rem;
   }
   .time {
-    font-size: 1.6rem;
+    font-size: 1.5rem;
   }
   .date {
     font-size: 0.7rem;
     margin-top: 0;
+    margin-bottom: 1.3rem;
   }
   .author {
     font-size: 0.6rem;
