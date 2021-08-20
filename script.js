@@ -104,7 +104,7 @@ async function getWeather(cityname){
     </div> 
     
     <div><span class="desc">${desc},  ${temp} </span></div>
-    <div> Wind:<span class="wind"> ${wind}</span></div>`
+    <div class="wind-parent"> Wind:<span class="wind"> ${wind}</span></div>`
     }
     catch(err){
         alert('Invalid city name! Please enter correct city name and try again.')
