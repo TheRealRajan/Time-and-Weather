@@ -10,7 +10,7 @@ The date is also shown alongside the time. <br><br>
 #### The demo is live at  *https://therealrajan.github.io/Time-and-Weather/* <br><br>
 ### APIs used
  > **[OpenWeatherMap](https://openweathermap.org/api)** for weather data
- > <br> **[Countryflags.io](https://www.countryflags.io/)** for flag images.
+ > <br> **[FlagsAPI](https://www.flagsapi.com)** for flag images.
 
 <br>
 Any suggestions to improve the app are always welcome. <br><br>
