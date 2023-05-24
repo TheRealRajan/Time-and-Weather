@@ -93,14 +93,16 @@ async function getWeather(cityname){
     const desc = data.weather[0].description 
     const wind = data.wind.speed + " km/h"
     const city = data.name
-    const country = data.sys.country
+    const country = data.sys.country.toUpperCase()
 
     //Weather data fetched from OpenWeathMap injected dynamically
     weatherEl.innerHTML = 
-    `<div >
-        <span class="city"> ${city +","}</span>
-        <span class="country"> ${"  " + country }</span> 
-        <img class="flag" src="https://www.countryflags.io/${country}/flat/32.png">
+    `<div class="location-data">
+        <div class="address">
+          <span class="city"> ${city +","}</span>
+          <span class="country"> ${"  " + country }</span> 
+        </div>
+        <img class="flag" src="https://flagsapi.com/${country}/flat/64.png">
     </div> 
     
     <div><span class="desc">${desc},  ${temp} </span></div>
@@ -110,7 +112,6 @@ async function getWeather(cityname){
         alert('Invalid city name! Please enter correct city name and try again.')
     }
     
-
 }
     
 
